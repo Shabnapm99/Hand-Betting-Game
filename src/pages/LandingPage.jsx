@@ -11,8 +11,8 @@ function LandingPage() {
             <section className='flex flex-col gap-6 pt-4 z-50'>
                 <div className='text-center'>
                     <h2 className="text-on-surface font-bold text-4xl md:text-6xl tracking-tight leading-tight">
-                        Sophisticated High-Stakes <br />
-                        <span className="text-primary italic">Mahjong Betting</span>
+                        Mahjong <br />
+                        <span className="text-primary italic">Hand Betting game</span>
                     </h2>
                 </div>
                 <p className="text-[15px] md:text-[18px] text-on-surface-variant max-w-xl mx-auto text-center">
