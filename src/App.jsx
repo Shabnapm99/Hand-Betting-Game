@@ -6,6 +6,7 @@ import Root from './root/Root';
 import { PulseLoader } from 'react-spinners'
 import GameInterface from './pages/GameInterface';
 
+
 function App() {
 
   const [loading, setLoading] = useState(true);

@@ -4,7 +4,7 @@ function ScoreCard({ score = 0, date = "2026-05-15", rank = 1 }) {
     return (
         <div className='
       flex items-center justify-between
-      p-3 rounded-xl
+      p-4 md:p-3 rounded-xl
       bg-white/5 backdrop-blur-md
       border border-white/10
       hover:bg-white/10

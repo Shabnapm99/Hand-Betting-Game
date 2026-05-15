@@ -19,8 +19,11 @@ function Leaderboard({ onClose }) {
         transition={{ duration: 0.3 }}
       >
         {/* inner overlay layer */}
+
         <div className="absolute inset-0 bg-black/80"></div>
+
         {/* content layer */}
+
         <div className='z-10 relative text-white'>
 
           {/* close button */}
@@ -33,7 +36,7 @@ function Leaderboard({ onClose }) {
               <IoCloseSharp size={22} />
             </button>
           </div>
-          <div className='px-2'>
+          <div className='px-2 flex flex-col justify-center'>
             <h3 className='font-bold text-2xl text-on-surface mb-4'>Top 5 Scores</h3>
             <div className='flex flex-col gap-4'>
               <ScoreCard />
@@ -44,7 +47,6 @@ function Leaderboard({ onClose }) {
             </div>
           </div>
         </div>
-
 
       </motion.section>
 

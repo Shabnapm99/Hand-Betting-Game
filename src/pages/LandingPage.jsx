@@ -36,14 +36,14 @@ function LandingPage() {
 
                 <div className='flex flex-col md:flex-row justify-center items-center gap-6 pt-4 text-sm md:text-base'>
                     <button
-                        className='px-12 py-3 rounded-lg text-on-primary-container bg-primary-container hover:scale-110 transition-all shadow-[0_0_25px_rgba(130,219,111,0.45)] font-medium flex justify-center gap-3 items-center'
+                        className='px-12 py-3 rounded-lg text-on-primary-container bg-primary-container hover:scale-110 transition-transform duration-300 shadow-[0_0_25px_rgba(130,219,111,0.45)] font-medium flex justify-center gap-3 items-center'
                         onClick={() => navigate('/game')}>
                         New Game
                         <GrCaretNext />
                     </button>
 
                     <button
-                        className='px-12 py-3 border border-outline-variant/50 rounded-lg text-on-surface hover:bg-surface-variant transition-all font-medium'
+                        className='px-12 py-3 border border-outline-variant/50 rounded-lg text-on-surface hover:bg-surface-variant transition-all duration-300 font-medium'
                         onClick={() => setShowLeaderboard(true)}>LeaderBoard</button>
                 </div>
 

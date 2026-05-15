@@ -11,3 +11,8 @@
   --color-surface-variant: #353535;
   --color-on-primary-container: #86df72;
 }
+
+html,
+body {
+  overflow-x: hidden;
+}
