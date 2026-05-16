@@ -75,7 +75,7 @@ function GameInterface() {
                         <div className='w-15 h-15 rounded-lg
                             bg-surface-container border border-outline-variant
                             flex items-center justify-center text-xl font-bold'>
-                            0
+                            {state.discardPile.length}
                         </div>
                     </div>
 
@@ -115,9 +115,11 @@ function GameInterface() {
                 <h2 className='text-sm text-on-surface-variant mb-3'>History</h2>
 
                 <div className='flex flex-col justify-center items-center gap-3'>
-                    <HistoryCard />
-                    <HistoryCard />
-                    <HistoryCard />
+                    {
+                        state.history.map((entry, index) => {
+                            return (<HistoryCard key={index} entry={entry} />)
+                        })
+                    }
                 </div>
             </section>
 
