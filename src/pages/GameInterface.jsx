@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useEffect, useReducer } from 'react'
 import '../App.css'
 import { IoMdArrowRoundBack } from "react-icons/io"
 import { useNavigate } from 'react-router-dom'
 import HistoryCard from '../components/cards/HistoryCard'
 import GameArea from '../components/GameArea'
+import { initialState } from '../game/initialState.js'
+import { gameReducer } from '../game/gameReducer.js'
+import { calculateTotal } from '../utils/calculateTotal.js'
 
 function GameInterface() {
 
+    const [state, dispatch] = useReducer(gameReducer, initialState);
+    const totalValue = calculateTotal(state.hand);
     const navigate = useNavigate()
 
+    // Initialize game once
+    useEffect(() => {
+        dispatch({ type: "INIT_GAME" });
+    }, []);
+
     return (
-        <main id='mahjong-table' className='w-full h-screen flex flex-col text-on-surface'>
+        <main id='mahjong-table' className='w-full flex flex-col text-on-surface'>
 
             {/* HEADER */}
             <header className='flex justify-between items-center px-6 py-4 border-b border-outline-variant/30'>
@@ -49,7 +59,7 @@ function GameInterface() {
                         <div className='relative w-15 h-15 rounded-lg bg-primary-container/20 border border-primary-container
                             flex items-center justify-center text-xl font-bold'>
 
-                            136
+                            {state.deck.length}
 
                             {/* Notification pulse */}
                             <span className='absolute -top-1 -right-1 h-3 w-3 rounded-full bg-yellow-300 animate-ping'></span>
@@ -75,7 +85,7 @@ function GameInterface() {
                 <div className='text-center'>
                     <p className='text-sm text-on-surface-variant'>Score</p>
                     <h1 className='text-5xl font-bold text-primary drop-shadow-[0_0_10px_rgba(130,219,111,0.3)]'>
-                        0
+                        {state.score}
                     </h1>
                 </div>
 
@@ -96,7 +106,7 @@ function GameInterface() {
             {/* GAME AREA */}
             <section className='flex-1 flex items-center justify-center'>
                 <div className='text-on-surface-variant'>
-                    <GameArea />
+                    <GameArea hand={state.hand} dispatch={dispatch} />
                 </div>
             </section>
 

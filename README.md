@@ -1,9 +1,13 @@
-# Hand Betting Game
+# Hand Betting Game (Mahjong Tiles)
 
 ##  🔗 Live Demo
 https://hand-betting-game-bzp1.vercel.app/
 
 ## 📖 Description
+
+The Hand Betting Game is a web-based interactive card-style betting game built using Mahjong tiles. The project demonstrates advanced state management, dynamic game logic, and scalable UI architecture in a browser-based environment.
+
+In this game, players are dealt a series of Mahjong tile hands and must bet whether the next hand’s total value will be higher or lower than the current one. The game combines probability, strategy, and dynamic scoring rules to create an engaging experience.
 
 ## ✨ Features
 
@@ -25,7 +29,7 @@ https://hand-betting-game-bzp1.vercel.app/
 
 ### Installation Steps
 1. Clone the repository
-- git clone https://github.com/yourusername/your-repo-name.git
+- git clone https://github.com/Shabnapm99/Hand-Betting-Game.git
 - Navigate to project directory 
 - cd your-repo-name
 2. Install dependencies 
