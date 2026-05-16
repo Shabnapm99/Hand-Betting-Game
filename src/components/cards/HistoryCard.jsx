@@ -1,38 +1,34 @@
 import React from "react";
 import Tile from "./Tile";
+import { FaAnglesDown, FaAnglesUp } from "react-icons/fa6";
+import { TiTick } from "react-icons/ti";
+import { RiCloseLine } from "react-icons/ri";
 
 function HistoryCard({ entry }) {
     const isWin = entry.result === "WIN";
+    const bet = entry.type === "BET_HIGHER";
 
     return (
-        <div className="w-full flex items-center justify-between px-4 py-3 
-                        bg-surface-container rounded-lg border border-outline-variant">
+        <div className="w-full flex items-center justify-between px-3 py-2
+                        bg-surface-container/50 rounded-lg border border-outline-variant">
 
             {/* WIN/LOSE ICON */}
             <div className="text-xl w-10 flex justify-center">
                 {isWin ? (
-                    <span className="text-green-400 font-bold">✔</span>
+                    <span className="text-green-400 font-bold"><TiTick /></span>
                 ) : (
-                    <span className="text-red-400 font-bold">✖</span>
+                    <span className="text-red-400 font-bold"><RiCloseLine /></span>
                 )}
             </div>
 
             {/* TILES */}
-            <div className="flex gap-2 flex-1 justify-center">
+            <div className="flex gap-1 flex-1 justify-center">
                 {entry.previousHand.map((tile) => (
-                    // <div
-                    //     key={index}
-                    //     className="w-10 h-14 flex flex-col items-center justify-center 
-                    //                rounded border border-outline-variant bg-surface"
-                    // >
-                    //     <span className="text-xs text-primary">
-                    //         {tile.value}
-                    //     </span>
-                    //     <span className="text-lg font-bold">
-                    //         {tile.symbol}
-                    //     </span>
-                    // </div>
-                    <Tile key={tile.id} tile={tile}/>
+
+                    <div className="scale-75">
+                        <Tile tile={tile} />
+                    </div>
+
                 ))}
             </div>
 
@@ -42,8 +38,9 @@ function HistoryCard({ entry }) {
                     {entry.currentValue}
                 </span>
 
-                <span className={`text-sm ${isWin ? "text-green-400" : "text-red-400"}`}>
-                    {isWin ? "▲" : "▼"}
+                <span className='text-sm' >
+                    {bet ? <FaAnglesUp className="text-base text-green-400" />
+                        : <FaAnglesDown className="text-base text-red-400" />}
                 </span>
             </div>
         </div>

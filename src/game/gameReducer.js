@@ -45,6 +45,7 @@ export function gameReducer(state, action) {
                 score: isWin ? state.score + 10 : state.score,
                 discardPile: [...state.discardPile, ...state.hand],
                 history: [...state.history, newHistoryEntry],
+                result,
             };
         }
 
@@ -74,6 +75,7 @@ export function gameReducer(state, action) {
                 score: isWin ? state.score + 10 : state.score,
                 discardPile: [...state.discardPile, ...state.hand],
                 history: [...state.history, newHistoryEntry],
+                result,
             };
         }
 

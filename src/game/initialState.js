@@ -5,5 +5,6 @@ export const initialState = {
     discardPile: [],
     gameOver: false,
     score: 0,
-    history:[]
+    history:[],
+    result:null
 };

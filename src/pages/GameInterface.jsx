@@ -12,15 +12,16 @@ function GameInterface() {
 
     const [state, dispatch] = useReducer(gameReducer, initialState);
     const totalValue = calculateTotal(state.hand);
+    const reversedHistory = [...state.history].reverse().slice(0,6);//show only 6 history entries
     const navigate = useNavigate()
 
     // Initialize game once
     useEffect(() => {
         dispatch({ type: "INIT_GAME" });
     }, []);
-
+    
     return (
-        <main id='mahjong-table' className='w-full flex flex-col text-on-surface'>
+        <main id='mahjong-table' className='w-full flex flex-col justify-center gap-4 text-on-surface'>
 
             {/* HEADER */}
             <header className='flex justify-between items-center px-6 py-4 border-b border-outline-variant/30'>
@@ -99,7 +100,12 @@ function GameInterface() {
                 <div className='w-full py-2 text-sm px-4 rounded-md
                     bg-primary/10 border border-primary/30
                     text-on-primary-container text-center'>
-                    Make your move: Bet Higher or Lower
+                    {!state.result && "Make your move: Bet Higher or Lower"}
+
+                    {state.result === "WIN" && "🎯 Correct Guess!"}
+
+                    {state.result === "LOSE" && "❌ Wrong Guess!"}
+
                 </div>
             </section>
 
@@ -111,12 +117,12 @@ function GameInterface() {
             </section>
 
             {/* HISTORY */}
-            <section className='px-10 pb-6'>
+            <section className='px-10 pb-6 border'>
                 <h2 className='text-sm text-on-surface-variant mb-3'>History</h2>
 
                 <div className='flex flex-col justify-center items-center gap-3'>
                     {
-                        state.history.map((entry, index) => {
+                        reversedHistory.map((entry, index) => {
                             return (<HistoryCard key={index} entry={entry} />)
                         })
                     }

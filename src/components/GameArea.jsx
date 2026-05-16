@@ -64,7 +64,6 @@ function GameArea({ hand, dispatch }) {
 
         </div>
 
-
     )
 }
 
